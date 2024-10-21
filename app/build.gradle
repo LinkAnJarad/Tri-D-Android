@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.testnavdrawer2"
-        minSdk 24
+        minSdk 28
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    packagingOptions {
+        exclude 'META-INF/androidx.cardview_cardview.version'
+    }
 }
 
 dependencies {
@@ -42,6 +46,7 @@ dependencies {
     implementation libs.navigation.ui
     implementation 'com.google.android.material:material:1.12.0'
     implementation libs.activity
+    implementation libs.cardview.v7
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
