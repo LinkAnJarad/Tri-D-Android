@@ -1,4 +1,4 @@
-package com.example.testnavdrawer2.ui.slideshow;
+package com.example.testnavdrawer2.ui.logs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.testnavdrawer2.databinding.FragmentSlideshowBinding;
+import com.example.testnavdrawer2.databinding.FragmentLogsBinding;
 
-public class SlideshowFragment extends Fragment {
+public class LogsFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentLogsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        LogsViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(LogsViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentLogsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
