@@ -3,23 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_account">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_account"
         android:name="com.example.testnavdrawer2.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.testnavdrawer2.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_qr"
+        android:name="com.example.testnavdrawer2.ui.qr.QRFragment"
+        android:label="Create a QR"
+        tools:layout="@layout/fragment_qr" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.testnavdrawer2.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_logs"
+        android:name="com.example.testnavdrawer2.ui.logs.LogsFragment"
+        android:label="Logs"
+        tools:layout="@layout/fragment_logs" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.testnavdrawer2.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.testnavdrawer2.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+
+
 </navigation>
