@@ -10,7 +10,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="281dp"
-        android:layout_height="260dp"
+        android:layout_height="310dp"
         android:focusable="true"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
@@ -44,9 +44,8 @@
                 tools:layout_editor_absoluteY="161dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:hint="E-mail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,17 +55,17 @@
                 app:layout_constraintVertical_bias="0.44">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tf_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField1"
+
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
                 android:hint="Password"
-                android:paddingBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.6"
@@ -75,8 +74,10 @@
                 app:layout_constraintVertical_bias="0.44">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tf_password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
