@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.testnavdrawer2.signup.SignUp1;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -39,6 +40,7 @@ import javax.net.ssl.X509TrustManager;
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private Button login_btn;
+    private Button signup_btn;
     private TextInputEditText tf_email, tf_password;
 
     @Override
@@ -53,10 +55,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         });
 
         login_btn = (Button) findViewById(R.id.login_btn);
+        signup_btn = (Button) findViewById(R.id.signup_btn);
         tf_email = (TextInputEditText) findViewById(R.id.tf_email);
         tf_password = (TextInputEditText) findViewById(R.id.tf_password);
 
         login_btn.setOnClickListener(this);
+        signup_btn.setOnClickListener(this);
     }
 
     private void loginUser() {
@@ -74,6 +78,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(Login.this, response, Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(Login.this, MainActivity.class);
+//                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -134,6 +140,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             loginUser();
             //Intent intent = new Intent(Login.this, MainActivity.class);
             //startActivity(intent);
+        } else if (view.getId() == R.id.signup_btn) {
+            Intent intent = new Intent(Login.this, SignUp1.class);
+            startActivity(intent);
         }
     }
 }
