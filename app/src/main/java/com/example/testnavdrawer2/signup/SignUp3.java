@@ -7,8 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -20,15 +20,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.testnavdrawer2.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SignUp2 extends AppCompatActivity implements View.OnClickListener {
+public class SignUp3 extends AppCompatActivity implements View.OnClickListener {
 
-    private MaterialButton btn_pick_employeeID, btn_pick_governmentID, btn_pick_drivers_license, btn_next_signup2;
-    private ImageView iv_employee_id, iv_government_id, iv_drivers_license;
+    private MaterialButton btn_pick_student_ID, btn_next_signup3;
+    private ImageView iv_student_id;
+
     private ActivityResultLauncher<Intent> pickImageLauncher;
 
     public interface ImagePickCallback {
@@ -41,7 +44,7 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_sign_up2);
+        setContentView(R.layout.activity_sign_up3);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -63,22 +66,19 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener {
                 });
 
 
+        String[] college_items = {"CEIS", "CHTM", "SLCN", "CMT", "CBMA", "CAHS", "CASE"};
 
+        TextInputLayout genderMenuLayout = findViewById(R.id.menu_college);
+        AutoCompleteTextView gender_autoCompleteTextView = (AutoCompleteTextView) genderMenuLayout.getEditText();
 
-        btn_pick_employeeID = (MaterialButton) findViewById(R.id.btn_pick_employeeID);
-        iv_employee_id = (ImageView) findViewById(R.id.iv_employee_id);
-        btn_pick_employeeID.setOnClickListener(this);
+        if (gender_autoCompleteTextView instanceof MaterialAutoCompleteTextView) {
+            ((MaterialAutoCompleteTextView) gender_autoCompleteTextView).setSimpleItems(college_items);
+        }
 
-        btn_pick_governmentID = (MaterialButton) findViewById(R.id.btn_pick_governmentID);
-        iv_government_id = (ImageView) findViewById(R.id.iv_government_id);
-        btn_pick_governmentID.setOnClickListener(this);
+        btn_pick_student_ID = (MaterialButton) findViewById(R.id.btn_pick_student_ID);
+        btn_pick_student_ID.setOnClickListener(this);
 
-        btn_pick_drivers_license = (MaterialButton) findViewById(R.id.btn_pick_drivers_license);
-        iv_drivers_license = (ImageView) findViewById(R.id.iv_drivers_license);
-        btn_pick_drivers_license.setOnClickListener(this);
-
-        btn_next_signup2 = (MaterialButton) findViewById(R.id.btn_next_signup2);
-        btn_next_signup2.setOnClickListener(this);
+        iv_student_id = (ImageView) findViewById(R.id.iv_student_id);
     }
 
     // Function to trigger image picker
@@ -110,26 +110,12 @@ public class SignUp2 extends AppCompatActivity implements View.OnClickListener {
         return byteBuffer.toByteArray();
     }
 
-
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btn_pick_employeeID) {
+        if (view.getId() == R.id.btn_pick_student_ID) {
             pickImage(uri -> {
-                iv_employee_id.setImageURI(uri);
+                iv_student_id.setImageURI(uri);
             });
-        } else if (view.getId() == R.id.btn_pick_governmentID) {
-            pickImage(uri -> {
-                iv_government_id.setImageURI(uri);
-            });
-        } else if (view.getId() == R.id.btn_pick_drivers_license) {
-            pickImage(uri -> {
-                iv_drivers_license.setImageURI(uri);
-            });
-        } else if (view.getId() == R.id.btn_next_signup2) {
-            Toast toast = Toast.makeText(this, "Test", Toast.LENGTH_SHORT);
-            Intent intent = new Intent(SignUp2.this, SignUp4.class);
-            startActivity(intent);
-
         }
     }
 }

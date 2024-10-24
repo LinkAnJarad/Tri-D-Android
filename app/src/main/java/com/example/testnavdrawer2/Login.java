@@ -21,6 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.testnavdrawer2.signup.SignUp1;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +45,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button login_btn;
     private Button signup_btn;
     private TextInputEditText tf_email, tf_password;
+
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +82,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(Login.this, response, Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(Login.this, MainActivity.class);
-//                        startActivity(intent);
+                        try {
+                            JSONObject json_response = new JSONObject(response);
+                            String status = json_response.getString("status");
+                            if (status.equals("success")) {
+                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(Login.this, "Login failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(Login.this, "JSON parsing error", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override

@@ -44,7 +44,7 @@ public class SignUp1 extends AppCompatActivity implements View.OnClickListener {
             ((MaterialAutoCompleteTextView) gender_autoCompleteTextView).setSimpleItems(gender_items);
         }
 
-        String[] user_type_items = {"Male", "Female"};
+        String[] user_type_items = {"Employee", "Student"};
 
         TextInputLayout user_type_menuLayout = findViewById(R.id.menu_user_type);
         AutoCompleteTextView user_type_autoCompleteTextView = (AutoCompleteTextView) user_type_menuLayout.getEditText();

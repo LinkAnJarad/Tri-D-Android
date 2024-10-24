@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:elevation="14dp"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Column 1 -->
+        <TextView
+            android:id="@+id/column1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Column 1"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+        <!-- Column 2 -->
+        <TextView
+            android:id="@+id/column2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Column 2"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+        <!-- Column 3 -->
+        <TextView
+            android:id="@+id/column3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Column 3"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+        <!-- Column 4 -->
+        <TextView
+            android:id="@+id/column4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Column 4"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+        <!-- Delete Icon -->
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Delete Row"
+            android:src="@drawable/ic_delete"
+            android:tint="?attr/colorError" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
