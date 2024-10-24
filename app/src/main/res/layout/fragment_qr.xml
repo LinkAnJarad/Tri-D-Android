@@ -4,19 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.qr.QRFragment">
+    tools:context=".ui.qr.QRFragment"
+    android:background="@color/md_theme_primaryContainer">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="40dp">
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_qr_vehicle"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Choose a registered vehicle">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Number of Passengers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.44">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_num_passengers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F2EFEB"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_generate_qr"
+            style="?attr/materialButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:text="Generate QR"
+            app:cornerRadius="16dp"/>
+
+        <ImageView
+            android:id="@+id/qrCodeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
