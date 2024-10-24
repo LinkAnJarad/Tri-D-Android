@@ -1,6 +1,8 @@
 package com.example.testnavdrawer2.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AutoCompleteTextView;
 
 import androidx.activity.EdgeToEdge;
@@ -9,11 +11,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.testnavdrawer2.Login;
 import com.example.testnavdrawer2.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class SignUp1 extends AppCompatActivity {
+public class SignUp1 extends AppCompatActivity implements View.OnClickListener {
+
+    private MaterialButton btn_next_signup1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,17 @@ public class SignUp1 extends AppCompatActivity {
 
         if (user_type_autoCompleteTextView instanceof MaterialAutoCompleteTextView) {
             ((MaterialAutoCompleteTextView) user_type_autoCompleteTextView).setSimpleItems(user_type_items);
+        }
+
+        btn_next_signup1 = (MaterialButton) findViewById(R.id.btn_next_signup1);
+        btn_next_signup1.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btn_next_signup1) {
+            Intent intent = new Intent(SignUp1.this, SignUp2.class);
+            startActivity(intent);
         }
     }
 }
