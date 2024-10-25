@@ -232,7 +232,19 @@
                 android:id="@+id/addButton"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
+                style="?attr/materialButtonOutlinedStyle"
                 android:text="Add Row">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:id="@+id/btn_submit"
+                android:layout_gravity="right"
+                android:layout_marginTop="30dp"
+                style="?attr/materialButtonStyle"
+                android:text="Submit">
 
             </com.google.android.material.button.MaterialButton>
 

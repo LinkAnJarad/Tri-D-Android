@@ -102,70 +102,20 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu_employee_id_type"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:hint="ID Type">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginRight="10dp">
+                    android:inputType="none"
+                    />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_pick_employeeID"
-                        style="?attr/materialButtonOutlinedStyle"
-                        android:layout_width="120dp"
-                        android:layout_height="60dp"
-                        android:text="Employee ID Card"
-                        android:layout_gravity="left"
-                        app:cornerRadius="6dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.651" />
-
-                    <ImageView
-                        android:id="@+id/iv_employee_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:srcCompat="@drawable/sample_dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_pick_governmentID"
-                        style="?attr/materialButtonOutlinedStyle"
-                        android:layout_width="120dp"
-                        android:layout_height="60dp"
-                        android:text="Government ID"
-                        android:layout_gravity="left"
-                        app:cornerRadius="6dp"
-                        android:padding="1dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.651" />
-
-                    <ImageView
-                        android:id="@+id/iv_government_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        app:srcCompat="@drawable/sample_dp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -174,11 +124,11 @@
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_pick_drivers_license"
+                    android:id="@+id/btn_pick_employeeID"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="Driver's License"
+                    android:text="Upload Employee ID"
                     android:layout_gravity="left"
                     app:cornerRadius="6dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -189,9 +139,9 @@
                     app:layout_constraintVertical_bias="0.651" />
 
                 <ImageView
-                    android:id="@+id/iv_drivers_license"
+                    android:id="@+id/iv_employee_id"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="110dp"
                     app:srcCompat="@drawable/sample_dp" />
 
             </LinearLayout>
