@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/nav_homeadmin">
+    app:startDestination="@+id/nav_adminhome">
 
     <fragment
-        android:id="@+id/nav_homeadmin"
-        android:name="com.example.testnavdrawer2.ui.homeadmin.HomeAdmin"
-        android:label="Admin"
-        tools:layout="@layout/fragment_home_admin" />
+        android:id="@+id/nav_adminhome"
+        android:name="com.example.testnavdrawer2.ui.adminhome.AdminHome"
+        android:label="Account"
+        tools:layout="@layout/fragment_admin_home" />
 
     <fragment
         android:id="@+id/nav_qradmin"

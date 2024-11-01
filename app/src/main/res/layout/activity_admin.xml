@@ -18,8 +18,12 @@
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        style="@style/TextAppearance.Material3.BodyLarge"
+        app:itemTextColor="#FFFFFF"
+
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="#000000"
         app:headerLayout="@layout/nav_header_admin"
         app:menu="@menu/activity_admin_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>
