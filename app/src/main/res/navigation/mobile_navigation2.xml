@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_homeadmin">
+
+    <fragment
+        android:id="@+id/nav_homeadmin"
+        android:name="com.example.testnavdrawer2.ui.homeadmin.HomeAdmin"
+        android:label="Admin"
+        tools:layout="@layout/fragment_home_admin" />
+
+    <fragment
+        android:id="@+id/nav_qradmin"
+        android:name="com.example.testnavdrawer2.ui.qradmin.QRAdminFragment"
+        android:label="Scan QR"
+        tools:layout="@layout/fragment_qradmin" />
+
+    <fragment
+        android:id="@+id/nav_admin_history"
+        android:name="com.example.testnavdrawer2.ui.adminhistory.AdminHistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_admin_history" />
+
+    <fragment
+        android:id="@+id/nav_admin_logs"
+        android:name="com.example.testnavdrawer2.ui.adminlogs.AdminLogsFragment"
+        android:label="Logs"
+        tools:layout="@layout/fragment_admin_logs" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.testnavdrawer2.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+</navigation>

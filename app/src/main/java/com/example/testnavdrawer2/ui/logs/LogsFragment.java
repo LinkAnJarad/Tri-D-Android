@@ -86,11 +86,9 @@ public class LogsFragment extends Fragment {
         logAdapter.addLog(log1);
         logAdapter.addLog(log2);
 
-
-
     }
 
-    private void getUserLogs() {
+    public void getUserLogs() {
 
         handleSSLHandshake();
 

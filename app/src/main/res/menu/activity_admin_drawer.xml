@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_homeadmin"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Account" />
+        <item
+            android:id="@+id/nav_qradmin"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Scan QR" />
+        <item
+            android:id="@+id/nav_admin_history"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="History" />
+
+        <item
+            android:id="@+id/nav_admin_logs"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Logs" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Logout" />
+
+
+    </group>
+</menu>

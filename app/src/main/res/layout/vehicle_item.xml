@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textPlateNumber"
+        android:layout_width="120dp"
+        android:text="PlateNo"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textType"
+        android:text="Type"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textBrand"
+        android:text="Brand"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textColor"
+        android:layout_width="100dp"
+        android:text="Color"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <ImageView
+        android:id="@+id/imageVerified"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:src="@drawable/ic_verified" />
+
+</LinearLayout>

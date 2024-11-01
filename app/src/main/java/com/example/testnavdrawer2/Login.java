@@ -86,7 +86,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             JSONObject json_response = new JSONObject(response);
                             String status = json_response.getString("status");
                             if (status.equals("success")) {
-                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                //Intent intent = new Intent(Login.this, MainActivity.class);
+                                Intent intent = new Intent(Login.this, AdminActivity.class);
+
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(Login.this, "Login failed", Toast.LENGTH_SHORT).show();
