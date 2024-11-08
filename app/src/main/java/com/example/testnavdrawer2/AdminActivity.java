@@ -1,13 +1,27 @@
 package com.example.testnavdrawer2;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
+import android.Manifest;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,11 +30,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testnavdrawer2.databinding.ActivityAdminBinding;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AdminActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityAdminBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +69,7 @@ public class AdminActivity extends AppCompatActivity {
             Log.d("NavigationDebug", "Navigated to: " + destination.getLabel());
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

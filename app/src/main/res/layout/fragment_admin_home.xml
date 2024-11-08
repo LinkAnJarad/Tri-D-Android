@@ -127,7 +127,23 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/menu_guest_vehicletype"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:hint="Guest Email"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tf_guest_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/menu_guest_vehicletype_layout"
                     style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -137,6 +153,7 @@
                     android:hint="Vehicle Type">
 
                     <AutoCompleteTextView
+                        id="@+id/menu_guest_vehicletype"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
@@ -168,11 +185,11 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_height="60dp"
-                    android:text="Upload Government ID"
+                    android:text="Photograph Guest ID"
                     app:cornerRadius="6dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/menu_id_type"
+                    android:id="@+id/menu_idtype_layout"
                     style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,6 +199,7 @@
                     android:hint="ID Type">
 
                     <AutoCompleteTextView
+                        android:id="@+id/menu_idtype"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"
@@ -190,7 +208,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/menu_reason"
+                    android:id="@+id/menu_reason_layout"
                     style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -200,6 +218,7 @@
                     android:hint="Reason for entering">
 
                     <AutoCompleteTextView
+                        android:id="@+id/menu_reason"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none"

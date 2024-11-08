@@ -20,6 +20,7 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:hint="Choose a registered vehicle">
 
             <AutoCompleteTextView
@@ -32,21 +33,20 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:hint="Number of Passengers"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.44">
+            android:layout_height="wrap_content"
+
+            android:hint="Reason"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_num_passengers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/tf_reason"
                 android:background="#F2EFEB"
-                android:inputType="number" />
+                android:layout_marginBottom="10dp"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

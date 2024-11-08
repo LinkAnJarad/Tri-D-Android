@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.testnavdrawer2.ApiConfig;
 import com.example.testnavdrawer2.R;
 import com.example.testnavdrawer2.ui.CardAdapter;
 import com.example.testnavdrawer2.ui.CardData;
@@ -130,7 +131,7 @@ public class HistoryFragment extends Fragment {
         handleSSLHandshake();
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
-        String url ="https://192.168.254.118/gethistory.php";
+        String url = ApiConfig.BASE_URL + "gethistory.php";
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

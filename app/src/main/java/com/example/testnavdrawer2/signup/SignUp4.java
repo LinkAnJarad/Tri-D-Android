@@ -27,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.testnavdrawer2.ApiConfig;
 import com.example.testnavdrawer2.Login;
 import com.example.testnavdrawer2.R;
 import com.google.android.material.button.MaterialButton;
@@ -136,7 +137,7 @@ public class SignUp4 extends AppCompatActivity implements View.OnClickListener {
         handleSSLHandshake();
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://192.168.254.118/signup.php";
+        String url = ApiConfig.BASE_URL + "signup.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

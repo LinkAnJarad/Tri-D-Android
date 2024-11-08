@@ -3,6 +3,7 @@ package com.example.testnavdrawer2;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -46,6 +47,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button signup_btn;
     private TextInputEditText tf_email, tf_password;
 
+    private boolean has_logged_in = false;
+
     Gson gson = new Gson();
 
     @Override
@@ -76,20 +79,34 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String password = tf_password.getText().toString().trim();
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://192.168.254.118/login.php";
+
+        String url = ApiConfig.BASE_URL + "login.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("Response", response);
                         try {
                             JSONObject json_response = new JSONObject(response);
                             String status = json_response.getString("status");
+                            String user_type = json_response.getString("user_type");
+                            String user_id = json_response.getString("user_id");
                             if (status.equals("success")) {
-                                //Intent intent = new Intent(Login.this, MainActivity.class);
-                                Intent intent = new Intent(Login.this, AdminActivity.class);
 
-                                startActivity(intent);
+                                if (user_type.equals("student") || user_type.equals("employee")) {
+                                    Intent intent = new Intent(Login.this, MainActivity.class);
+                                    intent.putExtra("USER_ID", user_id);
+                                    intent.putExtra("USER_TYPE", user_type);
+                                    startActivity(intent);
+                                } else {
+                                    Intent intent = new Intent(Login.this, AdminActivity.class);
+                                    intent.putExtra("USER_ID", user_id);
+                                    intent.putExtra("USER_TYPE", user_type);
+                                    startActivity(intent);
+                                }
+
+
                             } else {
                                 Toast.makeText(Login.this, "Login failed", Toast.LENGTH_SHORT).show();
                             }

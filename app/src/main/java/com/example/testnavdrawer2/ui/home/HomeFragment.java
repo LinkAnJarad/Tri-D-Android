@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.testnavdrawer2.ApiConfig;
 import com.example.testnavdrawer2.R;
 import com.example.testnavdrawer2.VehicleAdapter;
 import com.example.testnavdrawer2.VehicleEntry;
@@ -140,7 +141,8 @@ public class HomeFragment extends Fragment {
         handleSSLHandshake();
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
-        String url ="https://192.168.254.118/gethomedetails2.php";
+        //192.168.43.36
+        String url = ApiConfig.BASE_URL + "gethomedetails2.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
