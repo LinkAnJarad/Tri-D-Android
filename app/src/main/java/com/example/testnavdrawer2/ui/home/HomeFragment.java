@@ -1,6 +1,7 @@
 package com.example.testnavdrawer2.ui.home;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.testnavdrawer2.ApiConfig;
 import com.example.testnavdrawer2.R;
+import com.example.testnavdrawer2.UserVehiclesDataStore;
 import com.example.testnavdrawer2.VehicleAdapter;
 import com.example.testnavdrawer2.VehicleEntry;
 import com.example.testnavdrawer2.databinding.FragmentHomeBinding;
@@ -184,24 +186,47 @@ public class HomeFragment extends Fragment {
 
                                     }
 
-                                    String base64qr_1 = logsArray.getJSONObject(0).getString("qr");
-                                    Bitmap qr1 = decodeBase64ToBitmap(base64qr_1);
-                                    img_qr_1.setImageBitmap(qr1);
+//                                    String base64qr_1 = logsArray.getJSONObject(0).getString("qr");
+//                                    Bitmap qr1 = decodeBase64ToBitmap(base64qr_1);
+//                                    img_qr_1.setImageBitmap(qr1);
+//
+//                                    String base64qr_2 = logsArray.getJSONObject(1).getString("qr");
+//                                    Bitmap qr2 = decodeBase64ToBitmap(base64qr_2);
+//                                    img_qr_2.setImageBitmap(qr2);
+//
+//                                    String base64qr_3 = logsArray.getJSONObject(2).getString("qr");
+//                                    Bitmap qr3 = decodeBase64ToBitmap(base64qr_3);
+//                                    img_qr_3.setImageBitmap(qr3);
 
-                                    String base64qr_2 = logsArray.getJSONObject(1).getString("qr");
-                                    Bitmap qr2 = decodeBase64ToBitmap(base64qr_2);
-                                    img_qr_2.setImageBitmap(qr2);
+                                    // set drawable/test_qr.png as resource first for testing
+                                    img_qr_1.setImageResource(R.drawable.test_qr);
+                                    img_qr_2.setImageResource(R.drawable.test_qr);
+                                    img_qr_3.setImageResource(R.drawable.test_qr);
 
-                                    String base64qr_3 = logsArray.getJSONObject(2).getString("qr");
-                                    Bitmap qr3 = decodeBase64ToBitmap(base64qr_3);
-                                    img_qr_3.setImageBitmap(qr3);
 
-                                    String date_1 = logsArray.getJSONObject(0).getString("date");
-                                    lbl_qr_date_1.setText(date_1);
-                                    String date_2 = logsArray.getJSONObject(1).getString("date");
-                                    lbl_qr_date_2.setText(date_2);
-                                    String date_3 = logsArray.getJSONObject(2).getString("date");
-                                    lbl_qr_date_3.setText(date_3);
+
+                                    int length = logsArray.length();
+
+                                    if (length > 0) {
+                                        String date_1 = logsArray.getJSONObject(0).getString("date");
+                                        lbl_qr_date_1.setText(date_1);
+                                    } else {
+                                        lbl_qr_date_1.setText("N/A"); // Default or fallback text
+                                    }
+
+                                    if (length > 1) {
+                                        String date_2 = logsArray.getJSONObject(1).getString("date");
+                                        lbl_qr_date_2.setText(date_2);
+                                    } else {
+                                        lbl_qr_date_2.setText("N/A"); // Default or fallback text
+                                    }
+
+                                    if (length > 2) {
+                                        String date_3 = logsArray.getJSONObject(2).getString("date");
+                                        lbl_qr_date_3.setText(date_3);
+                                    } else {
+                                        lbl_qr_date_3.setText("N/A"); // Default or fallback text
+                                    }
 
 
                                     // Parse vehicles array
@@ -220,6 +245,8 @@ public class HomeFragment extends Fragment {
                                                 vehicle.getString("color"),
                                                 isverified
                                         ));
+
+                                        UserVehiclesDataStore.user_vehicles[i] = vehicle.getString("plate_number");
                                     }
 
                                     retrieved_data = true;
@@ -244,16 +271,20 @@ public class HomeFragment extends Fragment {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 // Send email and password as POST parameters
-                params.put("user_type", "Employee");
-                params.put("user_id", "0");
+                Intent previous_intent = requireActivity().getIntent();
+                String user_id = previous_intent.getStringExtra("USER_ID");
+                String user_type = previous_intent.getStringExtra("USER_TYPE");
+
+                params.put("user_type", user_type);
+                params.put("user_id", user_id);
                 return params;
             }
         };
         queue.add(stringRequest);
 
         // Add the request to the RequestQueue
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
+//        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+//        requestQueue.add(stringRequest);
     }
 
     @SuppressLint("TrulyRandom")

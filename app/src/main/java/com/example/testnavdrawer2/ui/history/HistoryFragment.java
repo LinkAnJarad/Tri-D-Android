@@ -3,6 +3,7 @@ package com.example.testnavdrawer2.ui.history;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -152,7 +153,9 @@ public class HistoryFragment extends Fragment {
                                 for (int i = 0; i < logsArray.length(); i++) {
                                     JSONObject historyObject = logsArray.getJSONObject(i);
 
-                                    Bitmap qrCodeBitmap = decodeBase64ToBitmap(historyObject.getString("qr"));
+                                    //Bitmap qrCodeBitmap = decodeBase64ToBitmap(historyObject.getString("qr"));
+                                    // use drawable/test_qr.png as resource first for testing
+                                    Bitmap qrCodeBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_qr);
 
                                     String time_out = historyObject.getString("time_out");
                                     boolean in_use = time_out.equals("");
@@ -192,16 +195,20 @@ public class HistoryFragment extends Fragment {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 // Send email and password as POST parameters
-                params.put("user_type", "Employee");
-                params.put("user_id", "0");
+                Intent previous_intent = requireActivity().getIntent();
+                String user_id = previous_intent.getStringExtra("USER_ID");
+                String user_type = previous_intent.getStringExtra("USER_TYPE");
+
+                params.put("user_type", user_type);
+                params.put("user_id", user_id);
                 return params;
             }
         };
         queue.add(stringRequest);
 
         // Add the request to the RequestQueue
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
+//        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+//        requestQueue.add(stringRequest);
     }
 
     @SuppressLint("TrulyRandom")

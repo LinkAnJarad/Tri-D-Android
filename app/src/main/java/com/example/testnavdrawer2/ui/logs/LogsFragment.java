@@ -146,8 +146,12 @@ public class LogsFragment extends Fragment {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 // Send email and password as POST parameters
-                params.put("user_type", "Employee");
-                params.put("user_id", "0");
+                Intent previous_intent = requireActivity().getIntent();
+                String user_id = previous_intent.getStringExtra("USER_ID");
+                String user_type = previous_intent.getStringExtra("USER_TYPE");
+
+                params.put("user_type", user_type);
+                params.put("user_id", user_id);
                 return params;
             }
         };
