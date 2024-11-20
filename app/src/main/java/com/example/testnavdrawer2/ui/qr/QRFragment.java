@@ -27,6 +27,7 @@ import com.example.testnavdrawer2.R;
 import com.example.testnavdrawer2.UserVehiclesDataStore;
 import com.example.testnavdrawer2.VehicleEntry;
 import com.example.testnavdrawer2.databinding.FragmentQrBinding;
+import com.example.testnavdrawer2.slotupdate_storage;
 import com.example.testnavdrawer2.ui.LogEntry;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -128,9 +129,12 @@ public class QRFragment extends Fragment {
             BitMatrix bitMatrix = barcodeEncoder.encode(qrContent, BarcodeFormat.QR_CODE, 400, 400);
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrCodeImageView.setImageBitmap(bitmap);
+            slotupdate_storage.first_time_call = "yes";
         } catch (WriterException e) {
             e.printStackTrace();
             Toast.makeText(getContext(), "Error generating QR code", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 }

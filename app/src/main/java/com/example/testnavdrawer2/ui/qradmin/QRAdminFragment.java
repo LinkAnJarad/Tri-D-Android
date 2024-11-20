@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.testnavdrawer2.ApiConfig;
 import com.example.testnavdrawer2.R;
 import com.example.testnavdrawer2.databinding.FragmentQradminBinding;
+import com.example.testnavdrawer2.slotupdate_storage;
 import com.google.android.material.button.MaterialButton;
 import com.journeyapps.barcodescanner.CaptureActivity;
 
