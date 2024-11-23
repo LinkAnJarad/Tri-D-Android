@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -35,6 +36,7 @@ import com.example.testnavdrawer2.VehicleEntry;
 import com.example.testnavdrawer2.databinding.FragmentHomeBinding;
 import com.example.testnavdrawer2.ui.LogAdapter;
 import com.example.testnavdrawer2.ui.LogEntry;
+import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,6 +73,8 @@ public class HomeFragment extends Fragment {
     private ImageView img_qr_1, img_qr_2, img_qr_3, imageProfile;
     private TextView lbl_qr_date_1, lbl_qr_date_2, lbl_qr_date_3;
     private TextView lbl_user_fullname, lbl_user_id_number, lbl_college, lbl_email, lbl_phone_number;
+
+    private MaterialButton btn_generate_pdf;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -119,23 +123,21 @@ public class HomeFragment extends Fragment {
 
         getUserDetails();
 
+        btn_generate_pdf = root.findViewById(R.id.btn_generate_pdf);
+        btn_generate_pdf.setOnClickListener(v -> generatePDF());
+
+
         return root;
 
 
     }
 
-    private void addSampleLogs() {
-        LogEntry log1 = new LogEntry("09/02/24", "12:03 PM", "1:03 PM");
-        LogEntry log2 = new LogEntry("09/02/24", "9:43 AM", "10:34 PM");
-
-        logAdapter.addLog(log1);
-        logAdapter.addLog(log2);
-
-    }
-
-    private void addSampleVehicles() {
-        vehicleAdapter.addVehicle(new VehicleEntry("ABC123", "Sedan", "Toyota", "Black", true));
-        vehicleAdapter.addVehicle(new VehicleEntry("XYZ789", "SUV", "Honda", "White", false));
+    private void generatePDF() {
+        Intent previous_intent = requireActivity().getIntent();
+        String user_id = previous_intent.getStringExtra("USER_ID");
+        String pdf_url = ApiConfig.BASE_URL + "mobilePDF2.php?user_id=" + user_id;
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(pdf_url));
+        startActivity(browserIntent);
     }
 
     public void getUserDetails() {

@@ -139,6 +139,7 @@ public class AdminHome extends Fragment implements View.OnClickListener {
         btn_submit_guest = view.findViewById(R.id.btn_submit_guest);
         btn_submit_guest.setOnClickListener(this);
 
+
         String[] reason_items = {"Reason1", "Reason2", "Reason3"};
         if (menu_reason instanceof MaterialAutoCompleteTextView) {
             ((MaterialAutoCompleteTextView) menu_reason).setSimpleItems(reason_items);

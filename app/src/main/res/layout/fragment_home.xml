@@ -553,6 +553,16 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_generate_pdf"
+            style="?attr/materialButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_margin="20dp"
+            android:text="Generate PDF history"
+            app:cornerRadius="16dp"/>
+
 
 
     </LinearLayout>
