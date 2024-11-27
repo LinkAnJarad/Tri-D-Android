@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this, "Counter: " + counter, Toast.LENGTH_SHORT).show();
 
                 // Schedule next run
-                handler.postDelayed(this, 3000); //
+                handler.postDelayed(this, 7000); //
             }
         };
         handler.post(runnable);
@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         handleSSLHandshake();
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        //192.168.43.36
         String url = ApiConfig.BASE_URL + "slotnotification.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(MainActivity.this, "JSON parsing error", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, "JSON parsing error", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {

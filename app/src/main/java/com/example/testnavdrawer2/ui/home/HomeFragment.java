@@ -169,7 +169,7 @@ public class HomeFragment extends Fragment {
                                     String lastName = userInfo.getString("last_name");
                                     String email = userInfo.getString("email");
                                     String telephone = userInfo.getString("telephone");
-                                    String employeeNumber = userInfo.getString("employee_number");
+                                    String employeeNumber = userInfo.getString("id");
 
                                     lbl_user_fullname.setText(firstName + " " + middleName + " " + lastName);
                                     lbl_user_id_number.setText("ID#: " + employeeNumber);
@@ -258,6 +258,7 @@ public class HomeFragment extends Fragment {
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Log.d("JSON PARSING", e.toString());
                                 Toast.makeText(getActivity(), "JSON parsing error", Toast.LENGTH_SHORT).show();
                             }
                         }

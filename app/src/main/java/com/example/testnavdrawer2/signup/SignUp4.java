@@ -191,7 +191,7 @@ public class SignUp4 extends AppCompatActivity implements View.OnClickListener {
                     params.put("student_id_base64", student_id_base64);
                 }
 
-
+                Log.d("TABLECARS", tableCarsJson);
                 params.put("tableCarsJson", tableCarsJson);
 
                 return params;
@@ -200,8 +200,8 @@ public class SignUp4 extends AppCompatActivity implements View.OnClickListener {
         queue.add(stringRequest);
 
         // Add the request to the RequestQueue
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+//        RequestQueue requestQueue = Volley.newRequestQueue(this);
+//        requestQueue.add(stringRequest);
     }
 
     @SuppressLint("TrulyRandom")
